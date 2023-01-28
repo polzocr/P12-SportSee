@@ -1,19 +1,22 @@
-// import { getUserPerformance } from './service/MockedApi'
-import { getUserPerformance } from './service/Api'
+// import { getUser } from './service/MockedApi'
+import { getUser } from './service/Api'
 import {useEffect} from 'react'
 
+import UserData from './utils/dataFormat/UserData'
+
 function Router() {  
-    // useEffect(() => {
-    //     async function getData(){
-    //         const result = await getUserPerformance(12)
-    //         console.log(result)
-    //     }
-    //     getData()
-    // }, [])
+    useEffect(() => {
+        async function getData(){
+            const result = await getUser(18)
+            const user = new UserData(result)
+            console.log(user)
+        }
+        getData()
+    }, [])
 
     return (
         <div className="Router">
-
+            
         </div>
     );
 }
