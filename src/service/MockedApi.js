@@ -14,5 +14,5 @@ export function getUserAverageSessions(id){
 }
 
 export function getUserPerformance(id){
-    return USER_PERFORMANCE.find(user => user.id = id).data
+    return USER_PERFORMANCE.find(user => user.id = id)
 }

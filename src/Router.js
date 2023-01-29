@@ -1,14 +1,14 @@
-// import { getUser } from './service/MockedApi'
-import { getUser } from './service/Api'
+import { getUserPerformance } from './service/MockedApi'
+// import { getUserPerformance } from './service/Api'
 import {useEffect} from 'react'
 
-import UserData from './utils/dataFormat/UserData'
+import PerformanceData from './utils/dataFormat/PerformanceData'
 
 function Router() {  
     useEffect(() => {
         async function getData(){
-            const result = await getUser(18)
-            const user = new UserData(result)
+            const result = await getUserPerformance(18)
+            const user = new PerformanceData(result)
             console.log(user)
         }
         getData()

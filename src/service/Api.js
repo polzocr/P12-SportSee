@@ -34,7 +34,7 @@ export async function getUserAverageSessions(id) {
 export async function getUserPerformance(id) {
     try {
         const response = await instance.get('/user/' + id + "/performance")
-        return response.data.data.data
+        return response.data.data
     } catch (err) {
         console.log('error: ', err)
     } 
