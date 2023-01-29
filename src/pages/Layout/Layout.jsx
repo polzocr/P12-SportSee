@@ -12,7 +12,14 @@ export default function Layout() {
                     <br />
                     <button onClick={() => setId(12)}>KARL</button>
                 </section>) :
-                (<Outlet id={id} />)
+                (<>
+                    <header>
+                        <nav>HEADER</nav>
+                    </header>
+                    <main>
+                        <Outlet context={id} />
+                    </main>
+                </> )
             }
         </>
     )
