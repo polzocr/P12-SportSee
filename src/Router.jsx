@@ -8,10 +8,12 @@ import ErrorPage from './pages/ErrorPage/ErrorPage';
 const router = createBrowserRouter(
     createRoutesFromElements(
         <>
+            
             <Route path='/' element={<Layout />}>
                 <Route index element={<Accueil />} />
             </Route>
             <Route path='*' element={<ErrorPage />}/>
+            
         </>
         
     )
