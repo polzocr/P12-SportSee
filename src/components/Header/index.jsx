@@ -30,7 +30,7 @@ export default function Header(){
                                 />
                     })}
                 </ul>
-                <p>Copiryght, SportSee 2020</p>
+                <p>Copyright, SportSee 2020</p>
             </nav>
             {/* <p className={styles.copyright}>Copiryght, SportSee 2020</p> */}
         </header>

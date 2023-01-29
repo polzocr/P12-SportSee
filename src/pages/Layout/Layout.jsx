@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { Link, Outlet } from "react-router-dom"
 import Header from "../../components/Header"
+import styles from './index.module.css'
 
 export default function Layout() {
     const [id, setId] = useState(1)
@@ -15,7 +16,7 @@ export default function Layout() {
                 </section>) :
                 (<>
                     <Header />
-                    <main>
+                    <main className={styles.main}>
                         <Outlet context={id} />
                     </main>
                 </> )
