@@ -1,0 +1,16 @@
+.icon{
+    
+    list-style: none;
+    border-radius:6px ;
+}
+
+.nav{
+    composes: icon;
+    background-color: white;
+    height: 64px;
+    width: 64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}

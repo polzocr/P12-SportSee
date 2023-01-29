@@ -15,7 +15,6 @@ const router = createBrowserRouter(
             <Route path='*' element={<ErrorPage />}/>
             
         </>
-        
     )
 )
 

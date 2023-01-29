@@ -1,8 +1,9 @@
 import { useState } from "react"
 import { Link, Outlet } from "react-router-dom"
+import Header from "../../components/Header"
 
 export default function Layout() {
-    const [id, setId] = useState()
+    const [id, setId] = useState(1)
     console.log(id === undefined)
     return (
         <>
@@ -13,9 +14,7 @@ export default function Layout() {
                     <button onClick={() => setId(12)}>KARL</button>
                 </section>) :
                 (<>
-                    <header>
-                        <nav>HEADER</nav>
-                    </header>
+                    <Header />
                     <main>
                         <Outlet context={id} />
                     </main>
