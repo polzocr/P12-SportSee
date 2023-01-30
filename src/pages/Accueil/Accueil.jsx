@@ -1,7 +1,7 @@
 import { useOutletContext } from "react-router-dom"
-
-import Title from "../../components/Title"
 import { useFetch } from "../../utils/hooks/useFetch"
+import Title from "../../components/Title"
+import Radar from "../../components/Radar"
 
 export default function Accueil(){
     const id = useOutletContext()
@@ -11,10 +11,7 @@ export default function Accueil(){
         
         <>
             <Title firstName={data.firstName}/>
-            <div>ACCUEIL</div>
-            <div>ACCUEIL</div>
-            <div>ACCUEIL</div>
-            <div>ACCUEIL</div>
+            <Radar />
         </>
     )
 }

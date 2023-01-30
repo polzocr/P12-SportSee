@@ -1,0 +1,47 @@
+.radarChart{
+    position: relative;
+}
+
+.radarChart::after{
+    content: "Intensité";
+    font-size: 12px;
+    position: absolute;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    left: 105px;
+    top: 4px;
+}
+
+.radarChart::before {
+    content: "Endurance";
+    font-size: 12px;
+    position: absolute;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    left: 100px;
+    bottom: 10px;
+}
+
+.graph-svg-component{
+    background-color:rgb(40, 45, 48) ;
+    border-radius: 5px;
+    
+}
+
+.legend{
+    font-size: 12px;
+    fill: white;
+    font-family: 'Roboto', sans-serif;
+}
+
+.kind{
+    font-size: 12px;
+    font-family: 'Roboto', sans-serif;
+    position: absolute;
+    color: white;
+    z-index: 1;
+}
+
+.before{
+    bottom: 100px;
+}
