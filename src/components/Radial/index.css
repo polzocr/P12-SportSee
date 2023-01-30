@@ -1,0 +1,42 @@
+#hello{
+    background-color: #FBFBFB;
+    width: 258px;
+    height: 263px;
+    position: relative;
+}
+
+#hello::after{
+    content: 'Score';
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 24px;
+
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.percent{
+    font-family: 'Roboto', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 26px;
+
+    position: absolute;
+    bottom: 130px;
+    left: 110px;
+}
+
+.objectif {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16;
+    font-weight: 500;
+    line-height: 26px;
+    color: #74798C;
+
+    width: 60px;
+    position: absolute;
+    bottom: 76px;
+    left: 100px;
+}

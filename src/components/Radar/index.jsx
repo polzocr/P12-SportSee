@@ -3,7 +3,6 @@ import { useRef } from "react";
 import './index.css'
 
 export default function Radar(){
-    const svgRef = useRef()
     
     var wMaior = 258;
     var wMenor = 258;
@@ -179,9 +178,7 @@ export default function Radar(){
     drawRadarCharts();
 
     return (
-        <div className="radarChart" id="chart-radar" ref={svgRef}>
-            {/* <p className="kind before">Intensité</p>
-            <p className="kind after">Endurance</p> */}
+        <div className="radarChart" id="chart-radar">
         </div>
     )
 }
