@@ -15,6 +15,8 @@ export default function Line(){
         { day: 'S', sessionLength: 100 },
         { day: 'D', sessionLength: 60 },
     ]
+
+
     
     const width = 258 
     const height = 263 
@@ -37,14 +39,19 @@ export default function Line(){
         const line = d3.line()
             .x((d) => xScale(d.day))
             .y((d) => yScale(d.sessionLength))
-            .curve(d3.curveBasis)
+            .curve(d3.curveMonotoneX)
 
         d3.select(svgRef.current)
             .select('path')
             .attr('d', () => line(chartData))
 
-            
-        const xAxis = d3.axisBottom(xScale)
+        //// AXIS X   ////
+
+        const axisScale = d3.scalePoint()
+            .domain(chartData.map(element => element.day))
+            .range([10, width-20])    
+
+        const xAxis = d3.axisBottom(axisScale)
         
             
 
@@ -52,12 +59,112 @@ export default function Line(){
             .append('g')
             .attr('class', 'xAxis')
             .attr('transform', `translate(0, ${height - 40})`)
-            // .attr('letter-spacing', '-15px')
             .call(xAxis)
             
+        //transform the 'm' in 'M' for 'Mercredi'
+        d3.selectAll(".tick:nth-of-type(3) text").style('text-transform', 'capitalize')
 
-        d3.select('text').attr('letter-spacing', '-15px')
-        d3.selectAll(".tick:last-of-type text").attr('letter-spacing', '20px')
+
+        ////////:  TOOLTIP ///////////////
+        let linearScale = d3.scaleLinear()
+            .domain([0,6])
+            .range([0, width])
+            .nice()
+
+        let bisect = d3.bisector(function (d) { return d.day; }).left;
+
+        
+        
+        // let focusText = d3.select(svgRef.current)
+        //     .append('g')
+        //     .attr('id', 'infos')
+        //     .append('text')
+        //     .style("opacity", 1)
+        //     .style('fill', 'black')
+        //     .attr('class', 'rect-session')
+        
+
+        var focusText = d3.select(svgRef.current)
+        .append("g")
+        .attr('id', 'infos')
+        .style("opacity", 0)
+
+        focusText.append("rect")
+            .attr('id', 'rect')
+            .attr("width", "65")
+            .attr("height", '32px')
+            .attr('fill', 'white')
+
+        focusText.append("text")
+            .style('fill', 'black')
+            .attr('id', 'text')
+        
+        // var focusText = d3.select('#infos')
+
+        let focus = d3.select(svgRef.current)
+            .append('g')
+            .append('circle')
+            .style("fill", "white")
+            .attr("stroke", "white")
+            .attr('stroke-width','10px')
+            .attr('stroke-opacity','0.5')
+            .attr('r', 4)
+            .style("opacity", 0)
+
+
+        d3.select(svgRef.current)
+            .append('rect')
+            .attr('id', 'mouse-rect')
+            .style('fill', 'none')
+            // .style("opacity", 0.1)
+            .style("pointer-events", "all")
+            .attr('width', width)
+            .attr('height', height)
+            .on('mouseover', mouseover)
+            .on('mousemove', mousemove)
+            .on('mouseout', mouseout);
+
+            // What happens when the mouse move -> show the annotations at the right positions.
+            function mouseover() {
+                focus.style("opacity", 1)
+                focusText.style("opacity", 1)
+            }
+            let clickArea = d3.select(svgRef).node()
+            function mousemove(e) {
+               
+                let xPos = d3.pointer(e, clickArea)[0]
+                let value = linearScale.invert(xPos)
+                let i = Math.floor(value)
+                const selectedData = data[i-5]
+                focus
+                    .attr("cx", xScale(selectedData.day))
+                    .attr("cy", yScale(selectedData.sessionLength))
+                d3.select('#rect')
+                    .attr("x", xScale(selectedData.day) + ((i - 5) > 4 ? -75 : 15) )
+                    .attr("y", yScale(selectedData.sessionLength) - 45)
+                d3.select('#text')
+                    .text(selectedData.sessionLength + ' min')
+                    .attr("x", xScale(selectedData.day) + ((i-5) > 4 ? -65 : 25) )
+                    .attr("y", yScale(selectedData.sessionLength) - 25)
+                // d3.select('#mouse-rect')
+                    
+                //     .attr("width", xScale(selectedData.day))
+
+                
+            }
+            function mouseout() {
+                focus.style("opacity", 0)
+                focusText.style("opacity", 0)
+                // d3.select('#mouse-rect')
+
+                //     .attr("width", width)
+            }
+
+
+
+
+
+
             
     }, [])
 
@@ -68,7 +175,6 @@ export default function Line(){
     return (
         <div id="lineChart">
             <svg id='chart' viewBox='0 0 258 263' ref={svgRef}>
-                <rect width="258" height='263' fill='red'></rect>
                 <path d='' fill='none' stroke='white' strokeWidth='4' />
             </svg>
         </div>

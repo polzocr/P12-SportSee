@@ -1,7 +1,8 @@
 #lineChart{
     width: 258px ;
     height: 263px;
-    border: 1px solid black;
+    border-radius: 5px;
+    background-color: red;
 }
 
 .xAxis{
@@ -12,5 +13,12 @@
     line-height: 24px;
     /* opacity: 0.5; */
     width: 50px;
+}
+
+#text{
+    font-size: 12px;
+    line-height: 24px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
 }
 
