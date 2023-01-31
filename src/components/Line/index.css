@@ -1,0 +1,16 @@
+#lineChart{
+    width: 258px ;
+    height: 263px;
+    border: 1px solid black;
+}
+
+.xAxis{
+    stroke-opacity: 0;
+    color: white;
+    font-family: 'Roboto',sans-serif;
+    font-size: 12px;
+    line-height: 24px;
+    /* opacity: 0.5; */
+    width: 50px;
+}
+
