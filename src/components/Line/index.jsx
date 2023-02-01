@@ -44,6 +44,7 @@ export default function Line(){
         d3.select(svgRef.current)
             .select('path')
             .attr('d', () => line(chartData))
+            .style('opacity', 0.7)
 
         //// AXIS X   ////
 
@@ -53,13 +54,12 @@ export default function Line(){
 
         const xAxis = d3.axisBottom(axisScale)
         
-            
-
         d3.select(svgRef.current)
             .append('g')
             .attr('class', 'xAxis')
             .attr('transform', `translate(0, ${height - 40})`)
             .call(xAxis)
+            .style('opacity', 0.7)
             
         //transform the 'm' in 'M' for 'Mercredi'
         d3.selectAll(".tick:nth-of-type(3) text").style('text-transform', 'capitalize')
@@ -71,18 +71,8 @@ export default function Line(){
             .range([0, width])
             .nice()
 
-        let bisect = d3.bisector(function (d) { return d.day; }).left;
 
-        
-        
-        // let focusText = d3.select(svgRef.current)
-        //     .append('g')
-        //     .attr('id', 'infos')
-        //     .append('text')
-        //     .style("opacity", 1)
-        //     .style('fill', 'black')
-        //     .attr('class', 'rect-session')
-        
+    
 
         var focusText = d3.select(svgRef.current)
         .append("g")
@@ -116,6 +106,15 @@ export default function Line(){
             .append('rect')
             .attr('id', 'mouse-rect')
             .style('fill', 'none')
+            .style("opacity", 0.1)
+            .style("pointer-events", "all")
+            .attr('width', width)
+            .attr('height', height);
+
+
+        d3.select(svgRef.current)
+            .append('rect')
+            .style('fill', 'none')
             // .style("opacity", 0.1)
             .style("pointer-events", "all")
             .attr('width', width)
@@ -146,18 +145,19 @@ export default function Line(){
                     .text(selectedData.sessionLength + ' min')
                     .attr("x", xScale(selectedData.day) + ((i-5) > 4 ? -65 : 25) )
                     .attr("y", yScale(selectedData.sessionLength) - 25)
-                // d3.select('#mouse-rect')
-                    
-                //     .attr("width", xScale(selectedData.day))
+                d3.select('#mouse-rect')
+                    .style('fill', '')
+                    .attr("width",  width - xScale(selectedData.day))
+                    .attr('x', xScale(selectedData.day))
 
                 
             }
             function mouseout() {
                 focus.style("opacity", 0)
                 focusText.style("opacity", 0)
-                // d3.select('#mouse-rect')
-
-                //     .attr("width", width)
+                d3.select('#mouse-rect')
+                    
+                    .style('fill', 'none')
             }
 
 
