@@ -4,6 +4,7 @@ import Title from "../../components/Title"
 import Radar from "../../components/Radar"
 import Radial from "../../components/Radial"
 import Line from "../../components/Line"
+import Bar from "../../components/Bar"
 
 export default function Accueil(){
     const id = useOutletContext()
@@ -13,6 +14,7 @@ export default function Accueil(){
         
         <>
             <Title firstName={data.firstName}/>
+            <Bar />
             <Radar />
             <Radial />
             <Line />

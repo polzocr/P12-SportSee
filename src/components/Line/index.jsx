@@ -161,9 +161,7 @@ export default function Line(){
             }
 
 
-
-
-
+       
 
             
     }, [])
