@@ -112,6 +112,24 @@ data_name.selectAll(".bar.calories")
     .attr("height", d => {
         return height - margin.top - margin.bottom - yScale2(d.calories) - 30
     })
+
+    //////// ROUNDED /////////
+    data_name
+        .append('rect')
+        .attr('rx', 5)
+        .style('fill', '#282D30')
+        .attr('x', 10.2)
+        .attr('y', (d) => yScale(d.kilogram) - 15)
+        .attr('width', 12.3)
+        .attr('height', 10)
+    data_name
+        .append('rect')
+        .attr('rx', 5)
+        .style('fill', '#E60000')
+        .attr('x', 32.8)
+        .attr('y', (d) => yScale2(d.calories) + 15)
+        .attr('width', 12.3)
+        .attr('height', 10)
     
 
 // Add the X Axis
@@ -131,7 +149,7 @@ svg.append("g")
 
 
 
-    d3.selectAll('.data_name')
+    data_name
         .append('rect')
         .attr('class','mouse-rect')
         .style('fill', 'none')
@@ -144,7 +162,7 @@ svg.append("g")
         .on('mouseover', (e,d) => mouseover(e, d) )
         .on('mouseout', mouseout);
 
-    d3.selectAll('.data_name')
+    data_name
         .append('rect')
         .attr('class', 'info-rect')
         .style('opacity', 0)
@@ -154,7 +172,7 @@ svg.append("g")
         .attr('width', 39)
         .attr('height', 63)
 
-    d3.selectAll('.data_name')
+    data_name
         .append('text')
         .attr('class', 'info-text')
         .text((d, i) => data[i]?.kilogram + 'Kg')
@@ -163,7 +181,7 @@ svg.append("g")
         .attr('y', 50)
         
     
-        d3.selectAll('.data_name')
+    data_name
         .append('text')
         .attr('class', 'info-text')
         .text((d, i) => data[i]?.calories + 'Kcal')
@@ -214,6 +232,9 @@ svg.append("g")
         .attr('class', 'title-legend')
         .attr('x', 50)
         .attr('y', 10)
+
+ 
+
   
     return (
         <div id='barChart'></div>
