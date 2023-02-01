@@ -5,7 +5,7 @@
 }
 
 .nav1 {
-    composes: navStyle
+    composes: navStyle;
 }
 
 .nav1 ul{

@@ -3,29 +3,6 @@ import * as d3 from 'd3'
 
 export default function Bar(){
 
-    // var models = [
-    //     {
-    //         "model_name": "f1",
-    //         "field1": 19,
-    //         "field2": 83
-    //     },
-    //     {
-    //         "model_name": "f2",
-    //         "field1": 67,
-    //         "field2": 93
-    //     },
-    //     {
-    //         "model_name": "f3",
-    //         "field1": 10,
-    //         "field2": 56
-    //     },
-    //     {
-    //         "model_name": "f4",
-    //         "field1": 98,
-    //         "field2": 43
-    //     }
-    // ];
-
 const data = [
     { day: 1, kilogram: 80, calories: 240 },
     { day: 2, kilogram: 80, calories: 220 },
@@ -36,16 +13,11 @@ const data = [
     { day: 7, kilogram: 76, calories: 390 },
 ]
 
-// models = models.map(i => {
-//     i.model_name = i.model_name;
-//     return i;
-// });
 
 var container = d3.select('#barChart'),
-    width = 835,
+    width = 820,
     height = 320,
-    margin = { top: 30, right: 20, bottom: 30, left: 50 },
-    barPadding = .2
+    margin = { top: 30, right: 20, bottom: 30, left: 50 }
 
 var svg = container
     .append("svg")
@@ -77,16 +49,7 @@ var yScale2 = d3.scaleLinear()
 var xAxis = d3.axisBottom(xScale0).tickSizeOuter(0);
 var yAxis = d3.axisLeft(yScale).ticks(3).tickSizeOuter(0);
 
-// svg
-//     .append('rect')
-//     .attr('id','mouse-rect')
-//     .style('fill', 'none')
-//     .style("opacity", 0.1)
-//     .style("pointer-events", "all")
-//     .attr("x", 40)
-//     .attr("y", 60)
-//     .attr('width', 70)
-//     .attr('height', 190);
+
 
 svg.append('line')
     .style("stroke", "#DEDEDE")
@@ -159,7 +122,7 @@ svg.append("g")
 
 svg.append("g")
     .attr("class", "yAxis")
-    .attr("transform", `translate(810,10)`)
+    .attr("transform", `translate(780,10)`)
     
     .call(yAxis);
     
@@ -215,59 +178,42 @@ svg.append("g")
         d3.selectAll('.info-rect').style("opacity", (d, i) => i === index.day - 1 ? 1 : 0)
     }
     
-    function mousemove(e) {
-
-        // let xPos = d3.pointer(e, clickArea)[0]
-        // let value = linearScale.invert(xPos)
-        // let i = Math.floor(value)
-        // const selectedData = data[i - 5]
-        // focus
-        //     .attr("cx", xScale(selectedData.day))
-        //     .attr("cy", yScale(selectedData.sessionLength))
-        // d3.select('#rect')
-        //     .attr("x", xScale(selectedData.day) + ((i - 5) > 4 ? -75 : 15))
-        //     .attr("y", yScale(selectedData.sessionLength) - 45)
-        // d3.select('#text')
-        //     .text(selectedData.sessionLength + ' min')
-        //     .attr("x", xScale(selectedData.day) + ((i - 5) > 4 ? -65 : 25))
-        //     .attr("y", yScale(selectedData.sessionLength) - 25)
-        // d3.select('#mouse-rect')
-        //     .style('fill', '')
-        //     .attr("width", width - xScale(selectedData.day))
-        //     .attr('x', xScale(selectedData.day))
-
-
-    }
     function mouseout() {
         d3.select(this).style('fill', 'none')
         d3.selectAll('.info-rect').style('opacity', 0)
     }
 
-    // Add the Y Axis
-    // svg.append("g")
-    //     .attr("class", "y axis")
-    //     .call(yAxis);
-    // const rx = 12;
-    // const ry = 12;
-    // svg
-    //     .selectAll("bar")
-    //     .data(data)
-    //     .enter().append("path")
-    //     .style("fill", "#c51b8a")
-    //     .attr("d", item => `
-    //     M${x(item.name)},${y(item.value) + ry}
-    //     a${rx},${ry} 0 0 1 ${rx},${-ry}
-    //     h${x.bandwidth() - 2 * rx}
-    //     a${rx},${ry} 0 0 1 ${rx},${ry}
-    //     v${height - y(item.value) - ry}
-    //     h${-(x.bandwidth())}Z
-    //   `);
+    //// LEGEND /////
 
+    svg.append("circle")
+        .attr("cx", 497)
+        .attr("cy", 6)
+        .attr("r", 4)
+        .style("fill", "#282D30")
+    svg.append("text")
+        .attr("x", 510)
+        .attr("y", 10)
+        .text("Poids (kg)")
+        .attr('class', 'text-legend')
+        
+    svg.append("circle")
+        .attr("cx", 607)
+        .attr("cy", 6)
+        .attr("r", 4)
+        .style("fill", "#E60000")
+    svg.append("text")
+        .attr("x", 620)
+        .attr("y", 10)
+        .text("Calories brûlées (kCal)")
+        .attr('class', 'text-legend')
 
+    //////TITLE///////////  
 
-  
-
-
+    svg.append("text")
+        .text('Activité quotidienne')
+        .attr('class', 'title-legend')
+        .attr('x', 50)
+        .attr('y', 10)
   
     return (
         <div id='barChart'></div>
