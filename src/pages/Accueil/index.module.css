@@ -1,0 +1,40 @@
+#infosContainer{
+    display: flex;
+    gap: 50px;
+    margin-top: 70px;
+}
+
+#graphContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+#otherCharts{
+    display: flex;
+    gap: 20px;
+}
+
+#keyDatas{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+@media screen and (max-width: 1300px) {
+    #infosContainer {
+        display: initial;
+    }
+
+    #keyDatas {
+        flex-direction: row;
+        gap: 10px;
+        margin-top: 30px;
+    }
+}
+
+@media screen and (min-width: 1600px) {
+    #infosContainer{
+        justify-content: center;
+    }
+}

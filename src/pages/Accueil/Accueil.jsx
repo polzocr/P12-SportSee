@@ -5,19 +5,68 @@ import Radar from "../../components/Radar"
 import Radial from "../../components/Radial"
 import Line from "../../components/Line"
 import Bar from "../../components/Bar"
+import Keydata from "../../components/Keydata"
+
+import calories from '../../assets/keydata/energy.svg'
+import proteines from '../../assets/keydata/chicken.svg'
+import glucides from '../../assets/keydata/apple.svg'
+import lipides from '../../assets/keydata/cheeseburger.svg'
+
+import styles from './index.module.css'
+
+
 
 export default function Accueil(){
     const id = useOutletContext()
     const {data} = useFetch(id)
-    console.log(data)
+    console.log('ici', data)
     return (
         
-        <>
-            <Title firstName={data.firstName}/>
-            <Bar />
-            <Radar />
-            <Radial />
-            <Line />
+        <>  
+            
+            <Title firstName={data.firstName} />
+
+            <section id={styles.infosContainer}>
+                <section id={styles.graphContainer}>
+                    <section id={styles.barChart}>
+                        <Bar />
+                    </section>
+                    <section id={styles.otherCharts}>
+                        <Line />
+                        <Radar />
+                        <Radial />
+                    </section>
+                </section>
+
+                <section id={styles.keyDatas}>
+                    <Keydata
+                        key={`calories`}
+                        number={data.keyData?.calorieCount}
+                        name='Calories'
+                        icone={calories}
+                        color="blue"
+                    />
+                    <Keydata
+                        key={`protéines`}
+                        number={data.keyData?.proteinCount}
+                        name='Protéines'
+                        icone={proteines}
+                    />
+                    <Keydata
+                        key={`glucides`}
+                        number={data.keyData?.carbohydrateCount}
+                        name='Glucides'
+                        icone={glucides}
+                    />
+                    <Keydata
+                        key={`lipides`}
+                        number={data.keyData?.lipidCount}
+                        name='Lipides'
+                        icone={lipides}
+                    />
+                </section>
+            </section>
+            
         </>
     )
 }

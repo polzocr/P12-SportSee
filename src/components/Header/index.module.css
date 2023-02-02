@@ -46,7 +46,7 @@
 .nav2{
     composes: navStyle;
     width: 117px;
-    height: 100vh;
+    min-height: 100vh;
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -75,6 +75,12 @@
     transform: rotate(-90deg);
     position: absolute;
     bottom: 10%;
+}
+
+@media screen and (max-width:1300px){
+    .nav2{
+        height: 116vh;
+    }
 }
 
 

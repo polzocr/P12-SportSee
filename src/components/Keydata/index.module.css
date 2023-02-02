@@ -1,0 +1,54 @@
+.container{
+    width: 258px;
+    height: 124px;
+    border-radius: 5px;
+    background-color: #FBFBFB;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 34px;
+}
+
+.imageContainer{
+    width: 60px;
+    height: 60px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imageContainer > img{
+    width: 16px;
+    object-fit: cover;
+}
+
+.Calories{
+    background-color: rgba(255, 0, 0, 0.07);
+}
+.Protéines{
+    background-color: rgba(74, 184, 255, 0.1);
+}
+.Glucides{
+    background-color: rgba(249, 206, 35, 0.1);
+}
+.Lipides{
+    background-color: rgba(253, 81, 129, 0.1);
+}
+
+.infosContainer p:first-child{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 20;
+    line-height: 24px;
+    color: #282D30 ;
+}
+
+.infosContainer p:last-child {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 14;
+    line-height: 24px;
+    color: #74798C;
+}
+
