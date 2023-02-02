@@ -19,53 +19,57 @@ import styles from './index.module.css'
 export default function Accueil(){
     const id = useOutletContext()
     const {data} = useFetch(id)
-    console.log('ici', data)
+    console.log('data:', data)
     return (
         
         <>  
             
-            <Title firstName={data.firstName} />
+             
+            {data && <>
+                <Title firstName={data?.firstName} />
 
-            <section id={styles.infosContainer}>
-                <section id={styles.graphContainer}>
-                    <section id={styles.barChart}>
-                        <Bar />
+                <section id={styles.infosContainer}>
+                    <section id={styles.graphContainer}>
+                        <section id={styles.barChart}>
+                            <Bar activity={data.activity} />
+                        </section>
+                        <section id={styles.otherCharts}>
+                            <Line sessions={data.sessions}/>
+                            <Radar performance={data.performance}/>
+                            <Radial score={data.score}/>
+                        </section>
                     </section>
-                    <section id={styles.otherCharts}>
-                        <Line />
-                        <Radar />
-                        <Radial />
+
+                    <section id={styles.keyDatas}>
+                        <Keydata
+                            key={`calories`}
+                            number={data?.keyData.calorieCount}
+                            name='Calories'
+                            icone={calories}
+                            color="blue"
+                        />
+                        <Keydata
+                            key={`protéines`}
+                            number={data?.keyData.proteinCount}
+                            name='Protéines'
+                            icone={proteines}
+                        />
+                        <Keydata
+                            key={`glucides`}
+                            number={data?.keyData.carbohydrateCount}
+                            name='Glucides'
+                            icone={glucides}
+                        />
+                        <Keydata
+                            key={`lipides`}
+                            number={data?.keyData.lipidCount}
+                            name='Lipides'
+                            icone={lipides}
+                        />
                     </section>
                 </section>
-
-                <section id={styles.keyDatas}>
-                    <Keydata
-                        key={`calories`}
-                        number={data.keyData?.calorieCount}
-                        name='Calories'
-                        icone={calories}
-                        color="blue"
-                    />
-                    <Keydata
-                        key={`protéines`}
-                        number={data.keyData?.proteinCount}
-                        name='Protéines'
-                        icone={proteines}
-                    />
-                    <Keydata
-                        key={`glucides`}
-                        number={data.keyData?.carbohydrateCount}
-                        name='Glucides'
-                        icone={glucides}
-                    />
-                    <Keydata
-                        key={`lipides`}
-                        number={data.keyData?.lipidCount}
-                        name='Lipides'
-                        icone={lipides}
-                    />
-                </section>
-            </section>
+            </>}
+            
             
         </>
     )

@@ -2,26 +2,14 @@ import './index.css'
 import * as d3 from 'd3'
 import { useState } from 'react'
 import { useEffect } from 'react'
-import { element } from 'prop-types'
 import { useRef } from 'react'
 
-export default function Line(){
-    const data = [
-        { day: 'L', sessionLength: 30 },
-        { day: 'M', sessionLength: 23 },
-        { day: 'm', sessionLength: 45 },
-        { day: 'J', sessionLength: 20 },
-        { day: 'V', sessionLength: 40 },
-        { day: 'S', sessionLength: 100 },
-        { day: 'D', sessionLength: 60 },
-    ]
+export default function Line({ sessions }){
 
-
+    const data = sessions
     
     const width = 258 
     const height = 263 
-    const padding = 20;
-    const maxValue = 100; //max data value
    
     const [chartData, setChartData] = useState(data)
     const svgRef = useRef()
@@ -136,19 +124,19 @@ export default function Line(){
                 let i = Math.floor(value)
                 const selectedData = data[i-5]
                 focus
-                    .attr("cx", xScale(selectedData.day))
-                    .attr("cy", yScale(selectedData.sessionLength))
+                    .attr("cx", xScale(selectedData?.day))
+                    .attr("cy", yScale(selectedData?.sessionLength))
                 d3.select('#rect')
-                    .attr("x", xScale(selectedData.day) + ((i - 5) > 4 ? -75 : 15) )
-                    .attr("y", yScale(selectedData.sessionLength) - 45)
+                    .attr("x", xScale(selectedData?.day) + ((i - 5) > 4 ? -75 : 15) )
+                    .attr("y", yScale(selectedData?.sessionLength) - 45)
                 d3.select('#text')
-                    .text(selectedData.sessionLength + ' min')
-                    .attr("x", xScale(selectedData.day) + ((i-5) > 4 ? -65 : 25) )
-                    .attr("y", yScale(selectedData.sessionLength) - 25)
+                    .text(selectedData?.sessionLength + ' min')
+                    .attr("x", xScale(selectedData?.day) + ((i-5) > 4 ? -65 : 25) )
+                    .attr("y", yScale(selectedData?.sessionLength) - 25)
                 d3.select('#mouse-rect')
                     .style('fill', '')
-                    .attr("width",  width - xScale(selectedData.day))
-                    .attr('x', xScale(selectedData.day))
+                    .attr("width",  width - xScale(selectedData?.day))
+                    .attr('x', xScale(selectedData?.day))
 
                 
             }

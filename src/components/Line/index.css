@@ -3,6 +3,8 @@
     height: 263px;
     min-width: 258px;
     min-height: 263px;
+    max-width: 258px;
+    max-height: 263px;
     border-radius: 5px;
     background-color: red;
     position: relative;

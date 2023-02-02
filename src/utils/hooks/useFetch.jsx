@@ -3,7 +3,7 @@ import { getUserPerformance, getUserAverageSessions, getUserActivity, getUser } 
 import FormatAllDatas from '../FormatAllDatas'
 
 export function useFetch(id){
-    const [data, setData] = useState([])
+    const [data, setData] = useState()
     const [isLoading, setIsLoading] = useState(false)
     const [error, setError] = useState(false)
 
