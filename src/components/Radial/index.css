@@ -1,11 +1,11 @@
-#hello{
+#radial{
     background-color: #FBFBFB;
     width: 258px;
     height: 263px;
     position: relative;
 }
 
-#hello::after{
+#radial::after{
     content: 'Score';
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
