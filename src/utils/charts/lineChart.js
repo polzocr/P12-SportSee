@@ -114,7 +114,6 @@ export function createLineChart(chartData, svgRef){
      */
     function mousemove(e) {
 
-        let hoverArea = d3.select(svgRef).node()
         let linearScale = d3.scaleLinear()
             .domain([0, 6])
             .range([0, width])

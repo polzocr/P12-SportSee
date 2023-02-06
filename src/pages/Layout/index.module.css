@@ -7,8 +7,8 @@
 #layout{
     border: 1px solid black;
     width: 100%;
-    margin: auto;
     height: 100vh;
+    margin: auto;
     display: flex;
     justify-content: center;
     align-items: center;
