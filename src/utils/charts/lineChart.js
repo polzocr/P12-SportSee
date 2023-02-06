@@ -1,6 +1,10 @@
 import * as d3 from 'd3'
 
-
+/**
+ * creating lineChart with a set of data
+ * @param {Object} chartData 
+ * @param {Object} svgRef 
+ */
 export function createLineChart(chartData, svgRef){
 
     const width = 258

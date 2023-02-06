@@ -1,9 +1,7 @@
 import './index.css'
-import * as d3 from 'd3'
-import { useState } from 'react'
 import { useEffect } from 'react'
 import { useRef } from 'react'
-import {createLineChart} from '../../utils/charts/lineCharts'
+import {createLineChart} from '../../utils/charts/lineChart'
 
 export default function Line({ sessions }){
 
