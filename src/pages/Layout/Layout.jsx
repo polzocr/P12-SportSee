@@ -4,7 +4,7 @@ import Header from "../../components/Header"
 import styles from './index.module.css'
 
 export default function Layout() {
-    const [id, setId] = useState(18)
+    const [id, setId] = useState(12)
     console.log(id === undefined)
     return (
         <>

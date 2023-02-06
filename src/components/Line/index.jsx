@@ -21,8 +21,8 @@ export default function Line({ sessions }){
         
         const yScale = d3.scaleLinear()
             // .domain([0, d3.max(chartData, (d) => d.sessionLength)])
-            .domain([0, 120])
-            .range([height, 0])
+            .domain([d3.min(chartData, (d) => d.sessionLength), d3.max(chartData, (d) => d.sessionLength)])
+            .range([height-50, 100])
 
         const line = d3.line()
             .x((d) => xScale(d.day))
@@ -54,12 +54,7 @@ export default function Line({ sessions }){
 
 
         ////////:  TOOLTIP ///////////////
-        let linearScale = d3.scaleLinear()
-            .domain([0,6])
-            .range([0, width])
-            .nice()
-
-
+        
     
 
         var focusText = d3.select(svgRef.current)
@@ -116,13 +111,24 @@ export default function Line({ sessions }){
                 focus.style("opacity", 1)
                 focusText.style("opacity", 1)
             }
+
             let clickArea = d3.select(svgRef).node()
+
+            let linearScale = d3.scaleLinear()
+                .domain([0, 6])
+                .range([0, width])
+                .nice()
+
             function mousemove(e) {
-               
-                let xPos = d3.pointer(e, clickArea)[0]
+                const screenSize = window.screen.width
+
+                let xPos = d3.pointer(e, d3.select(svgRef))[0]
+                // console.log("xPos: ", xPos)
                 let value = linearScale.invert(xPos)
                 let i = Math.floor(value)
-                const selectedData = data[i-5]
+                console.log(i)
+                // const selectedData = screenSize > 1599 ? data[i-7] : data[i-4]
+                const selectedData = data[i-4]
                 focus
                     .attr("cx", xScale(selectedData?.day))
                     .attr("cy", yScale(selectedData?.sessionLength))
