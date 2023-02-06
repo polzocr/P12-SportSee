@@ -1,18 +1,18 @@
 import { useState } from "react"
-import { Link, Outlet } from "react-router-dom"
+import { Outlet } from "react-router-dom"
 import Header from "../../components/Header"
 import styles from './index.module.css'
 
 export default function Layout() {
     const [id, setId] = useState()
-    console.log(id === undefined)
+
     return (
         <>
             {id === undefined ?
-                (<section>
-                    <button onClick={() => setId(18)}>CECILIA</button>
+                (<section id={styles.layout}>
+                    <button onClick={() => setId(18)} className={styles.buttonLayout}>CECILIA</button>
                     <br />
-                    <button onClick={() => setId(12)}>KARL</button>
+                    <button onClick={() => setId(12)} className={styles.buttonLayout}>KARL</button>
                 </section>) :
                 (<>
                     <Header />
