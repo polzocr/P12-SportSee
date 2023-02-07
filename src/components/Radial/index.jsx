@@ -3,10 +3,10 @@ import './index.css'
 import { useRef } from 'react'
 import { useEffect } from 'react'
 import {createRadialChart} from '../../utils/charts/radialChart'
-
+import PropTypes from 'prop-types'
 
 export default function Radial({score}){
-
+    
     const svgRef = useRef()
     
     useEffect(() => {
@@ -24,6 +24,11 @@ export default function Radial({score}){
         </div>
     )
 }
+
+Radial.propTypes = {
+    score: PropTypes.number.isRequired,
+}
+
 
 
 

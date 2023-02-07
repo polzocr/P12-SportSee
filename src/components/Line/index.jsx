@@ -2,9 +2,9 @@ import './index.css'
 import { useEffect } from 'react'
 import { useRef } from 'react'
 import {createLineChart} from '../../utils/charts/lineChart'
+import PropTypes from 'prop-types'
 
 export default function Line({ sessions }){
-
     const svgRef = useRef()
 
     useEffect(() => {
@@ -21,5 +21,12 @@ export default function Line({ sessions }){
             </svg>
         </div>
     )
+}
+
+Line.propTypes = {
+    activity: PropTypes.arrayOf(PropTypes.exact({
+        day: PropTypes.string.isRequired,
+        sessionLength: PropTypes.number.isRequired,
+    }))
 }
 

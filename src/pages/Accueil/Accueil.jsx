@@ -30,7 +30,7 @@ export default function Accueil(){
              
             {data &&
             (<>
-                <Title firstName={data?.firstName} />
+                <Title firstName={data.firstName} />
 
                 <section id={styles.infosContainer}>
                     <section id={styles.graphContainer}>
@@ -47,26 +47,26 @@ export default function Accueil(){
                     <section id={styles.keyDatas}>
                         <Keydata
                             key={`calories`}
-                            number={data?.keyData.calorieCount}
+                            number={data.keyData.calorieCount}
                             name='Calories'
                             icone={calories}
                             color="blue"
                         />
                         <Keydata
                             key={`protéines`}
-                            number={data?.keyData.proteinCount}
+                            number={data.keyData.proteinCount}
                             name='Protéines'
                             icone={proteines}
                         />
                         <Keydata
                             key={`glucides`}
-                            number={data?.keyData.carbohydrateCount}
+                            number={data.keyData.carbohydrateCount}
                             name='Glucides'
                             icone={glucides}
                         />
                         <Keydata
                             key={`lipides`}
-                            number={data?.keyData.lipidCount}
+                            number={data.keyData.lipidCount}
                             name='Lipides'
                             icone={lipides}
                         />
