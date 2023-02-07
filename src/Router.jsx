@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider, Route, createRoutesFromElements } 
 import Layout from './pages/Layout/Layout';
 import Accueil, {LoadingApi} from './pages/Accueil/Accueil';
 import ErrorPage from './pages/ErrorPage/ErrorPage';
+import Error from './components/Error';
 
 
 const router = createBrowserRouter(
@@ -9,10 +10,12 @@ const router = createBrowserRouter(
         <>
             
             <Route path='/' element={<Layout />}>
-                <Route index 
-                    element={<Accueil />}
-                />
+                
             </Route>
+            <Route path='/:id'
+                element={<Accueil />}
+                loader={LoadingApi}
+            />
             <Route path='*' element={<ErrorPage />}/>
             
         </>
