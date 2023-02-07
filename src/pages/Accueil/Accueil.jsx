@@ -1,4 +1,4 @@
-import { useOutletContext } from "react-router-dom"
+import { useFetcher, useLoaderData, useOutletContext } from "react-router-dom"
 import { useFetch } from "../../utils/hooks/useFetch"
 import Title from "../../components/Title"
 import Radar from "../../components/Radar"
@@ -13,6 +13,8 @@ import glucides from '../../assets/keydata/apple.svg'
 import lipides from '../../assets/keydata/cheeseburger.svg'
 
 import styles from './index.module.css'
+import { getUser } from "../../service/Api"
+import { useEffect } from "react"
 
 
 
@@ -20,6 +22,9 @@ export default function Accueil(){
     const id = useOutletContext()
     const {data} = useFetch(id)
     console.log('data:', data)
+    
+   
+
     return (
         
         <>  
@@ -73,4 +78,10 @@ export default function Accueil(){
             
         </>
     )
+}
+
+
+export async function LoadingApi(element){
+    console.log(element)
+    return getUser(12)
 }

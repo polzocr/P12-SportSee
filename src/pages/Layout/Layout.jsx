@@ -5,6 +5,8 @@ import styles from './index.module.css'
 
 export default function Layout() {
     const [id, setId] = useState()
+
+
     return (
         <>
             {id === undefined ?
