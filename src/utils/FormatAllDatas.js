@@ -7,19 +7,22 @@ export default class AllDatas {
     }
 
     get id(){
-        return this._user.id
+        return this._user?.id
     }
 
     get firstName(){
-        return this._user.userInfos.firstName
+        return this._user?.userInfos.firstName
     }
 
     get score() {
-        const oldScore = this._user.todayScore
+        const oldScore = this._user?.todayScore
         return oldScore === null || oldScore === 0 ? 0 : oldScore * 100
     }
 
     get keyData() {
+        if(!this._user) {
+            return {}
+        }
         const formatValue = new Intl.NumberFormat('en-IN', { maximumSignificantDigits: 3 })
         const NewObject = Object.fromEntries(Object.entries(this._user.keyData).map(([key, value]) => {
             return [key, formatValue.format(value) + (key == 'calorieCount' ? 'Kcal' : 'g')]
