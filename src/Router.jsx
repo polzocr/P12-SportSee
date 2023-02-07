@@ -15,6 +15,7 @@ const router = createBrowserRouter(
             <Route path='/:id'
                 element={<Accueil />}
                 loader={LoadingApi}
+                errorElement={<Error />}
             />
             <Route path='*' element={<ErrorPage />}/>
             

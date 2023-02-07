@@ -1,5 +1,4 @@
-import { useFetcher, useLoaderData, useOutletContext, useParams, defer, Await } from "react-router-dom"
-import { useFetch } from "../../utils/hooks/useFetch"
+import {useLoaderData, defer, Await } from "react-router-dom"
 import Title from "../../components/Title"
 import Radar from "../../components/Radar"
 import Radial from "../../components/Radial"
@@ -7,7 +6,6 @@ import Line from "../../components/Line"
 import Bar from "../../components/Bar"
 import Keydata from "../../components/Keydata"
 import Header from "../../components/Header"
-import Error from '../../components/Error'
 
 import calories from '../../assets/keydata/energy.svg'
 import proteines from '../../assets/keydata/chicken.svg'
@@ -16,8 +14,7 @@ import lipides from '../../assets/keydata/cheeseburger.svg'
 
 import styles from './index.module.css'
 import { getUser, getUserPerformance, getUserAverageSessions, getUserActivity, } from "../../service/Api"
-import { Suspense, useEffect } from "react"
-import FormatAllDatas from '../../utils/FormatAllDatas'
+import { Suspense} from "react"
 import UserData from "../../utils/dataFormat/UserData"
 import ActivityData from "../../utils/dataFormat/ActivityData"
 import SessionsData from "../../utils/dataFormat/SessionsData"
@@ -34,7 +31,7 @@ export default function Accueil(){
             <main className={styles.main}>
                 {data && <>
                     <Suspense fallback={<p>Toi</p>}>
-                        <Await resolve={data.user} errorElement={<p>Toi</p>}>
+                        <Await resolve={data.user} errorElement={<h1>Bonjour Toi</h1>}>
                             {(dataUser) => {
                                 return <Title firstName={new UserData(dataUser).firstName} />
                             }}
