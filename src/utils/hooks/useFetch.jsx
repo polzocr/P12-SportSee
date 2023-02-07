@@ -9,12 +9,15 @@ export function useFetch(id){
 
     useEffect(() => {
         async function fetchData(){
-            const userData = await getUser(id)
-            const userActivity = await getUserActivity(id)
-            const userSessions = await getUserAverageSessions(id)
-            const userPerformance = await getUserPerformance(id)
-            const datas = new FormatAllDatas([userData, userActivity, userSessions, userPerformance])
-            setData(datas)
+            Promise.allSettled([getUser(id), getUserActivity(id), getUserAverageSessions(id), getUserPerformance(id)])
+            .then(result => {
+                const datas = new FormatAllDatas([result[0].value, result[1].value, result[2].value, result[3].value])
+                setData(datas)
+            })
+            .catch(err => err)
+            
+            // const datas = new FormatAllDatas([userData, userActivity, userSessions, userPerformance])
+            // setData(datas)
         }
         fetchData()
     }, [])
