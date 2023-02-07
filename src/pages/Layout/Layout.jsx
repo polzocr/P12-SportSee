@@ -16,7 +16,7 @@ export default function Layout() {
                 (<>
                     <Header />
                     <main className={styles.main}>
-                        <Outlet context={id} />
+                        <Outlet context={[id, setId]} />
                     </main>
                 </> )
             }

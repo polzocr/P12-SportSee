@@ -3,22 +3,22 @@
 }
 
 .radarChart::after{
-    content: "Intensité";
+    content: "Cardio";
     font-size: 12px;
     position: absolute;
     color: white;
     font-family: 'Roboto', sans-serif;
-    left: 105px;
+    left: 110px;
     top: 4px;
 }
 
 .radarChart::before {
-    content: "Endurance";
+    content: "Force";
     font-size: 12px;
     position: absolute;
     color: white;
     font-family: 'Roboto', sans-serif;
-    left: 100px;
+    left: 115px;
     bottom: 10px;
 }
 

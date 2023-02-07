@@ -17,15 +17,19 @@ import styles from './index.module.css'
 
 
 export default function Accueil(){
-    const id = useOutletContext()
-    const {data} = useFetch(id)
-    console.log('data:', data)
+    const [id] = useOutletContext()
+    const {data, error} = useFetch(id)
+    console.log(data)
+    if(error){
+        throw error
+    }
     return (
         
         <>  
             
              
-            {data && <>
+            {data &&
+            (<>
                 <Title firstName={data?.firstName} />
 
                 <section id={styles.infosContainer}>
@@ -68,7 +72,8 @@ export default function Accueil(){
                         />
                     </section>
                 </section>
-            </>}
+            </>)
+            }
             
             
         </>
