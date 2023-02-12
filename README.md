@@ -10,7 +10,8 @@ ____________________
 
 - yarn
 - npm
-- node
+- node  
+
 On Windows, these installations require to use PowerShell in administrator mode.
 
 
