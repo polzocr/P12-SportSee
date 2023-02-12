@@ -1,9 +1,9 @@
 
 [![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://forthebadge.com)
-(https://img.shields.io/badge/-React-red)
-(https://img.shields.io/badge/-NodeJS-green)
-(https://img.shields.io/badge/-D3-blue)
-(https://img.shields.io/badge/-css-orange)
+![React](https://img.shields.io/badge/-React-red)
+![NodeJS](https://img.shields.io/badge/-NodeJS-green)
+![D3](https://img.shields.io/badge/-D3-blue)
+![CSS](https://img.shields.io/badge/-css-orange)
 ____________________
 
 # SportSee
