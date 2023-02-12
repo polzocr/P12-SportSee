@@ -26,7 +26,10 @@ const router = createBrowserRouter(
 
 
 
-
+/**
+ * router component
+ * @returns {jsx}
+ */
 function Router() {  
     return (
        <RouterProvider router={router} />

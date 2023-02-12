@@ -1,6 +1,14 @@
 import styles from './index.module.css'
 import PropTypes from 'prop-types'
 
+
+/**
+ * keydata component
+ * @param {String} number how many 
+ * @param {String} number name 
+ * @param {String} number url 
+ * @returns {jsx} for a keydata element with icon and numbers
+ */
 export default function Keydata({number,name, icone}){
     return (
         <div className={styles.container}>

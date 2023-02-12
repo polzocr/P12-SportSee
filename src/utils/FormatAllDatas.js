@@ -1,3 +1,8 @@
+
+/**
+ * @class
+ * Format all the data received
+ */
 export default class AllDatas {
     constructor([user, activity, sessions, performance]) {
         this._user = user
@@ -19,6 +24,12 @@ export default class AllDatas {
         return oldScore === null || oldScore === 0 ? 0 : oldScore * 100
     }
 
+    /**
+     * formating datas with 'Intl.NumberFormat for 3 digits with coma
+     * Creating new array from object 'this._user.keyData (Object.entries)
+     * mapping to change value
+     * Creating object from this new Array (Object.fromEntries)
+     */
     get keyData() {
         const formatValue = new Intl.NumberFormat('en-IN', { maximumSignificantDigits: 3 })
         const NewObject = Object.fromEntries(Object.entries(this._user.keyData).map(([key, value]) => {
@@ -27,12 +38,14 @@ export default class AllDatas {
         return NewObject
     }
 
+    //changing index of day
     get activity(){
         return this._userActivity.map(({ kilogram, calories }, index) => {
             return { day: index + 1, kilogram, calories }
         })
     }
 
+    //changin days to get day of week
     get sessions() {
         const days = {
             1: 'L',
@@ -48,6 +61,7 @@ export default class AllDatas {
         })
     }
 
+    //changing kinds values
     get performance() {
         const kinds = [
             "Cardio",

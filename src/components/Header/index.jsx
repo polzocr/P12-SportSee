@@ -7,6 +7,10 @@ import icon4 from '../../assets/header/nav-4.png'
 import styles from './index.module.css'
 import Icon from '../Icon'
 
+/**
+ * component Header
+ * @returns {jsx} TopHeader and LeftHeader
+ */
 export default function Header(){
     const icons = [icon1, icon2, icon3, icon4]
     return (

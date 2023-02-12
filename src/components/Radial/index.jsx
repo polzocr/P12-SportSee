@@ -5,6 +5,12 @@ import { useEffect } from 'react'
 import {createRadialChart} from '../../utils/charts/radialChart'
 import PropTypes from 'prop-types'
 
+
+/**
+ * radialChart component
+ * @param {Number} score 
+ * @returns {jsx} for the radial chart
+ */
 export default function Radial({score}){
     
     const svgRef = useRef()

@@ -4,6 +4,12 @@ import { useEffect } from 'react'
 import {createBarChart} from '../../utils/charts/barChart'
 import PropTypes from 'prop-types'
 
+
+/**
+ * component barChart
+ * @param {array} activity 
+ * @returns {jsx} barchart
+ */
 export default function Bar({activity}){
     const svgRef = useRef()
 

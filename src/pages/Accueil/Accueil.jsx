@@ -15,11 +15,15 @@ import lipides from '../../assets/keydata/cheeseburger.svg'
 import styles from './index.module.css'
 
 
-
+/**
+ * component Accueil where all datas are shown
+ * @returns {jsx} for the dashboad page
+ */
 export default function Accueil(){
     const [id] = useOutletContext()
     const {data, error} = useFetch(id)
-    console.log(data)
+    
+    //throwing an error that will be catch by router
     if(error){
         throw error
     }

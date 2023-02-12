@@ -4,6 +4,12 @@ import { useRef } from 'react'
 import {createLineChart} from '../../utils/charts/lineChart'
 import PropTypes from 'prop-types'
 
+
+/**
+ * lineChart component
+ * @param {Array} sessions [{day: sessionLength}]
+ * @returns {jsx} lineChart
+ */
 export default function Line({ sessions }){
     const svgRef = useRef()
 

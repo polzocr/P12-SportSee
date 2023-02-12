@@ -4,6 +4,11 @@ import './index.css'
 import {createRadarChart} from '../../utils/charts/radarChart'
 import PropTypes from 'prop-types'
 
+/**
+ * radarchart component
+ * @param {Array} performance [{value: number , kind: 'string'}]
+ * @returns {jsx} for radarChart
+ */
 export default function Radar({performance}){
     const svgRef = useRef()
     

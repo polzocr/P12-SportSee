@@ -1,9 +1,16 @@
 import axios from 'axios'
 
+//creating instance that will be used everywhere
 const instance = axios.create({
     baseURL: "http://localhost:3000"
 })
 
+
+/**
+ * get user infos
+ * @param {Number} id of user
+ * @returns {Promise}
+ */
 export async function getUser(id) {
     try{
         const response = await instance.get('/user/' + id)
@@ -13,6 +20,12 @@ export async function getUser(id) {
     } 
 }
 
+
+/**
+ * get user activities
+ * @param {Number} id of user
+ * @returns {Promise}
+ */
 export async function getUserActivity(id) {
     try {
         const response = await instance.get('/user/' + id + "/activity")
@@ -22,6 +35,12 @@ export async function getUserActivity(id) {
     } 
 }
 
+
+/**
+ * get user sessions
+ * @param {Number} id of user
+ * @returns {Promise}
+ */
 export async function getUserAverageSessions(id) {
     try {
         const response = await instance.get('/user/' + id + "/average-sessions")
@@ -31,6 +50,11 @@ export async function getUserAverageSessions(id) {
     } 
 }
 
+/**
+ * get user performances
+ * @param {Number} id of user
+ * @returns {Promise}
+ */
 export async function getUserPerformance(id) {
     try {
         const response = await instance.get('/user/' + id + "/performance")
