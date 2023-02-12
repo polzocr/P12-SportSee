@@ -1,5 +1,5 @@
 
-[![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://forthebadge.com)
+![Javascript](https://img.shields.io/badge/made%20with-Javascript-lightgrey)
 ![React](https://img.shields.io/badge/-React-red)
 ![NodeJS](https://img.shields.io/badge/-NodeJS-green)
 ![D3](https://img.shields.io/badge/-D3-blue)
