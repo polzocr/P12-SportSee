@@ -12,7 +12,7 @@ import FormatAllDatas from '../FormatAllDatas'
 export function useFetch(id){
     const [data, setData] = useState()
     const [error, setError] = useState()
-console.log(id)
+    
     useEffect(() => {
         async function fetchData(){
             //trying to resolve all promises
