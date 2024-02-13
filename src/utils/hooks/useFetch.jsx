@@ -12,7 +12,7 @@ import FormatAllDatas from '../FormatAllDatas'
 export function useFetch(id){
     const [data, setData] = useState()
     const [error, setError] = useState()
-
+console.log(id)
     useEffect(() => {
         async function fetchData(){
             //trying to resolve all promises
@@ -23,6 +23,7 @@ export function useFetch(id){
                     throw (results.find((result) => result.status === 'rejected').reason)
                 } else {
                     //format the data with constructor class
+                    console.log(results[0].value)
                     const datas = new FormatAllDatas([results[0].value, results[1].value, results[2].value, results[3].value])
                     setData(datas)
                 }  

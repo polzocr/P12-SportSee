@@ -6,7 +6,7 @@ import {USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_MAIN_DATA, USER_PERFORMANCE} 
  * @returns {Object}
  */
 export function getUser(id){
-    return USER_MAIN_DATA.find(user => user.id = id)
+    return USER_MAIN_DATA.find(user => user.id === id)
 }
 
 /**
@@ -15,7 +15,7 @@ export function getUser(id){
  * @returns {Object}
  */
 export function getUserActivity(id){
-    return USER_ACTIVITY.find(user => user.id = id).sessions
+    return USER_ACTIVITY.find(user => user.userId === id).sessions
 }
 
 /**
@@ -24,7 +24,7 @@ export function getUserActivity(id){
  * @returns {Object}
  */
 export function getUserAverageSessions(id){
-    return USER_AVERAGE_SESSIONS.find(user => user.id = id).sessions
+    return USER_AVERAGE_SESSIONS.find(user => user.userId === id).sessions
 }
 
 
@@ -34,5 +34,5 @@ export function getUserAverageSessions(id){
  * @returns {Object}
  */
 export function getUserPerformance(id){
-    return USER_PERFORMANCE.find(user => user.id = id)
+    return USER_PERFORMANCE.find(user => user.userId = id)
 }
