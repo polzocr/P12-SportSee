@@ -33,7 +33,7 @@ export default class AllDatas {
     get keyData() {
         const formatValue = new Intl.NumberFormat('en-IN', { maximumSignificantDigits: 3 })
         const NewObject = Object.fromEntries(Object.entries(this._user.keyData).map(([key, value]) => {
-            return [key, formatValue.format(value) + (key == 'calorieCount' ? 'Kcal' : 'g')]
+            return [key, formatValue.format(value) + (key === 'calorieCount' ? 'Kcal' : 'g')]
         }));
         return NewObject
     }

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { getUserPerformance, getUserAverageSessions, getUserActivity, getUser } from '../../service/Api'
+// import { getUserPerformance, getUserAverageSessions, getUserActivity, getUser } from '../../service/MockedApi'
 import FormatAllDatas from '../FormatAllDatas'
 
 
@@ -32,6 +33,9 @@ export function useFetch(id){
             
         }
         fetchData()
-    }, [])
-    return {data, error }
+        //mocked api
+        // const datas = new FormatAllDatas([getUser(id), getUserActivity(id), getUserAverageSessions(id), getUserPerformance(id)])
+        // setData(datas)
+    }, [id])
+    return { data, error }
 }
