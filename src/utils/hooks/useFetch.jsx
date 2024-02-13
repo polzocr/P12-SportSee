@@ -23,7 +23,6 @@ console.log(id)
                     throw (results.find((result) => result.status === 'rejected').reason)
                 } else {
                     //format the data with constructor class
-                    console.log(results[0].value)
                     const datas = new FormatAllDatas([results[0].value, results[1].value, results[2].value, results[3].value])
                     setData(datas)
                 }  
